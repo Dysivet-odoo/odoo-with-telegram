@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="estate_property_type_tree_view" model="ir.ui.view">
+        <field name="name">estate.property.type.tree.view</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <tree string="Tree1">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_estate_property_type_search" model="ir.ui.view">
+        <field name="name">view.estate.property.type.search</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <search string="Tree2">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="estate_property_type_view_form" model="ir.ui.view">
+        <field name="name">estate.property.type.form</field>
+        <field name="model">estate.property.type</field>
+        <field name="arch" type="xml">
+            <form string="form3">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button id="button_action" name="%(Estate.estate_property_offer_action)d"
+                                    title="Offers" type="action" icon="fa-money" class="oe_stat_button">
+                            <field name="offer_count" readonly="1" widget="statinfo" string="Offers"/>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+
+                    <notebook>
+                        <page string="Properties">
+                            <field name="property_ids" readonly="True">
+                                <tree string="Tree properties" editable="bottom">
+                                    <field name="name" string="Title"/>
+                                    <field name="expected_price" string="Expected price"/>
+                                    <field name="state" string="Status"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
